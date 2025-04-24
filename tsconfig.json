@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                       // Versão de JS a ser gerada
+    "module": "CommonJS",                    // Compatível com Node.js
+    "moduleResolution": "node",              // Resolve módulos como o Node faz
+    "outDir": "./dist",                      // Pasta onde os arquivos compilados vão
+    "rootDir": "./src",                      // Raiz dos arquivos de entrada
+    "strict": true,                          // Ativa todas as verificações de tipo estritas
+    "esModuleInterop": true,                 // Permite importar pacotes CommonJS
+    "forceConsistentCasingInFileNames": true,// Força o uso consistente de maiúsculas/minúsculas
+    "skipLibCheck": true,                    // Ignora checagem de tipos de pacotes node_modules
+    "types": ["jest", "node"]                // Importa definições de tipos para Jest e Node
+  },
+  "include": ["src", "tests"],
+  "exclude": ["node_modules", "dist"]
+}
