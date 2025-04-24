@@ -20,11 +20,11 @@ jobs:
         run: |
           docker build \
             --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} \
-            -t humix/humix-srv-usuario:${{ github.sha }} .
+            -t blgianini/humix-srv-usuario:${{ github.sha }} .
 
       - name: Push da imagem para o Docker Hub
         run: |
-          docker push humix/humix-srv-usuario:${{ github.sha }}
+          docker push blgianini/humix-srv-usuario:${{ github.sha }}
 
   deploy:
     name: Deploy
