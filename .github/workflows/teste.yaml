@@ -16,7 +16,7 @@ jobs:
             - name: Fazendo checkout do repositório de config
               uses: actions/checkout@v2
               with: 
-                repository: 'https://github.com/humix-refactor/humix-srv-usuario-config'
+                repository: 'https://github.com/humix-refactor/humix-srv-usuario-config.git'
 
             - name: Verificando o que está no agent
               run: |
