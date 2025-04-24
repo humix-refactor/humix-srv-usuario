@@ -45,11 +45,9 @@ jobs:
         run: |
           kustomize edit set image teste=humix/humix-srv-usuario:${{ github.sha }}
 
-      - name: Criando commit tag nova da imagem
+      - name: Criando commit tag nova da imagem e fazendo o push no repositório de config
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "Deploy Action"
           git commit -am "Mudando a Tag da Imagem"
-
-      - name: Fazendo o push da nova versão da imagem
-        uses: ad-m/github-push-action@master
+          git push origin main
