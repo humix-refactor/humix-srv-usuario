@@ -29,7 +29,6 @@ COPY --from=builder /app/package-lock.json .
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/.env .env
 
 # Gera o Prisma Client novamente só por segurança no runtime
 RUN npx prisma generate
