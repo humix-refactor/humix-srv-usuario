@@ -43,6 +43,7 @@ jobs:
 
       - name: Atualizando os valores da imagem
         run: |
+          ls
           kustomize edit set image teste=humix/humix-srv-usuario:${{ github.sha }}
 
       - name: Criando commit tag nova da imagem e fazendo o push no repositório de config
