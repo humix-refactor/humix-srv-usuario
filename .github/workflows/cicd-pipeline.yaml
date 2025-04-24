@@ -37,7 +37,6 @@ jobs:
 
             - name: Atualizando os valores da imagem
               run: |
-                cd kubernetes
                 kustomize edit set image teste=humix/humix-srv-usuario:${{ github.sha }}
 
             - name: Criando commit tag nova da imagem
