@@ -13,6 +13,10 @@ jobs:
             - name: Fazendo checkout do código
               uses: actions/checkout@v2
 
+            - name: Verificando o que está no agent
+              run: |
+                  ls
+
             - name: Fazendo checkout do repositório de config
               uses: actions/checkout@v2
               with: 
@@ -21,4 +25,3 @@ jobs:
             - name: Verificando o que está no agent
               run: |
                   ls
-                  ls -la
