@@ -38,7 +38,7 @@ jobs:
 
       - name: Fazendo pull do repositório
         run: |
-            git pull
+            git pull --rebase
 
       - name: Rodando o Kustomize
         uses: imranismail/setup-kustomize@v1
