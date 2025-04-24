@@ -1,0 +1,24 @@
+name: CD
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    teste-checkout: 
+        name: Teste de Checkout
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Fazendo checkout do código
+              uses: actions/checkout@v2
+
+            - name: Fazendo checkout do repositório de config
+              uses: actions/checkout@v2
+              with: 
+                repository: 'https://github.com/humix-refactor/humix-srv-usuario-config'
+
+            - name: Verificando o que está no agent
+              run: |
+                  ls
+                  ls -la
