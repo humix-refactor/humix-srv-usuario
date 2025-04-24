@@ -36,6 +36,10 @@ jobs:
         with:
           repository: "humix-refactor/humix-srv-usuario-config"
 
+      - name: Fazendo pull do repositório
+        run: |
+            git pull
+
       - name: Rodando o Kustomize
         uses: imranismail/setup-kustomize@v1
         with:
