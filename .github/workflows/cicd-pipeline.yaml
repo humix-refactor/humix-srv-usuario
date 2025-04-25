@@ -26,35 +26,31 @@ jobs:
         run: |
           docker push blgianini/humix-srv-usuario:${{ github.sha }}
 
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Fazendo checkout do repositório de config
-        uses: actions/checkout@v2
-        with:
-          repository: "humix-refactor/humix-srv-usuario-config"
-
-      - name: Fazendo pull do repositório
-        run: |
-            git pull --rebase
-
-      - name: Rodando o Kustomize
-        uses: imranismail/setup-kustomize@v1
-        with:
-          kustomize_version: v3.6.1
-
-      - name: Atualizando os valores da imagem
-        run: |
-          kustomize edit set image teste=humix/humix-srv-usuario:${{ github.sha }}
-
-      - name: Criando commit tag nova da imagem
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "Deploy Action"
-          git add . 
-          git commit -am "Mudando a Tag da Imagem"
-
-      - name: Fazendo o push da nova versão da imagem
-        uses: ad-m/github-push-action@master
+          deploy:
+            name: Deploy
+            runs-on: ubuntu-latest
+            needs: build
+            steps:
+                - name: Fazendo checkout do código
+                  uses: actions/checkout@v2
+    
+                - name: Rodando o Kustomize
+                  uses: imranismail/setup-kustomize@v1
+                  with:
+                    cd kubernetes
+                    kustomize_version: v3.6.1
+    
+                - name: Atualizando os valores da imagem
+                  run: |
+                    ls
+                    cd kubernetes
+                    kustomize edit set image humix-srv-usuario=humix/humix-srv-usuario:${{ github.sha }}
+    
+                - name: Criando commit tag nova da imagem
+                  run: |
+                    git config --local user.email "actions@github.com"
+                    git config --local user.name "Deploy Action"
+                    git commit -am "Mudando a Tag da Imagem"
+                
+                - name: Fazendo o push da nova versão da imagem
+                  uses: ad-m/github-push-action@master

@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deploy.yaml
+- service.yaml
+
+namespace: usuario
+
+images:
+- name: humix-srv-usuario
+  newName: humix/humix-srv-usuario
+  newTag: 92ff30eb2e4a482b90f9258a06369db94b63cb45

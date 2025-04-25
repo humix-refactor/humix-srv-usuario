@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: humix-srv-usuario
+spec:
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: humix-srv-usuario
+  template:
+    metadata:
+      labels:
+        app: humix-srv-usuario
+    spec:
+      containers:
+      - name: humix-srv-usuario
+        image: teste
+        ports:
+        - containerPort: 8080
