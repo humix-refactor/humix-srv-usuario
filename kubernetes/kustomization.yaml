@@ -9,4 +9,4 @@ namespace: usuario
 images:
 - name: humix-srv-usuario
   newName: humix/humix-srv-usuario
-  newTag: 92ff30eb2e4a482b90f9258a06369db94b63cb45
+  newTag: 79ca9b18e4461f61464afc9dd7b898e40c4846c6
