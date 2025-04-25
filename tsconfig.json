@@ -11,6 +11,6 @@
     "skipLibCheck": true,                    // Ignora checagem de tipos de pacotes node_modules
     "types": ["jest", "node"]                // Importa definições de tipos para Jest e Node
   },
-  "include": ["src", "tests"],
+  "include": ["src", "src/tests"],
   "exclude": ["node_modules", "dist"]
 }
